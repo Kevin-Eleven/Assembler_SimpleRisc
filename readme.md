@@ -1,15 +1,14 @@
-# SimpleRISC Assembler
+# SimpleRISC Assembler (Web Version)
 
-A Python-based assembler for the SimpleRISC instruction set architecture, featuring both a command-line interface and graphical user interface.
+A web-based assembler for the SimpleRISC instruction set architecture, designed to run entirely in the browser.
 
 ## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
-- [Installation](#installation)
 - [Usage](#usage)
-  - [Graphical User Interface](#graphical-user-interface)
-  - [Command Line Interface](#command-line-interface)
+  - [Online Access](#online-access)
+  - [Local Development](#local-development)
 - [Project Structure](#project-structure)
 - [SimpleRISC Instruction Set](#simplerisc-instruction-set)
   - [Instruction Formats](#instruction-formats)
@@ -18,86 +17,62 @@ A Python-based assembler for the SimpleRISC instruction set architecture, featur
 - [Examples](#examples)
 - [Implementation Details](#implementation-details)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
-The SimpleRISC Assembler translates assembly language code written for the SimpleRISC architecture into machine code. It supports a variety of instruction formats and addressing modes, making it suitable for educational purposes and simple computer architecture demonstrations.
+The SimpleRISC Assembler translates assembly language code written for the SimpleRISC architecture into machine code. This web version runs entirely client-side, making it easily accessible from any browser and deployable on GitHub Pages.
 
 ## Features
 
-- **Graphical User Interface**: Easy-to-use interface for writing, loading, and saving assembly code
-- **Syntax Highlighting**: Visual feedback for assembly code
+- **Web-Based Interface**: Use the assembler from any browser without installation
+- **Real-time Assembly**: Convert assembly code to machine code with immediate feedback
+- **File Operations**: Load and save assembly code files
 - **Error Reporting**: Clear error messages for debugging
 - **Label Support**: Symbolic addressing with labels
 - **Multiple Addressing Modes**: Register and immediate addressing
 - **32-bit Instruction Set**: Full support for the SimpleRISC 32-bit ISA
 
-## Installation
-
-### Prerequisites
-
-- Python 3.6 or higher
-- Tkinter (included with most Python installations)
-
-### Setup
-
-1. Clone the repository or download the source code
-2. No additional dependencies are required beyond the standard Python library
-
-```bash
-git clone <repository-url>
-cd Assembler_SimpleRisc
-```
-
 ## Usage
 
-### Graphical User Interface
+### Online Access
 
-To start the GUI application:
+Access the SimpleRISC Assembler directly in your browser:
 
-```bash
-python main.py
-```
+1. Go to [https://yourusername.github.io/Assembler_SimpleRisc](https://yourusername.github.io/Assembler_SimpleRisc)
+2. Enter your assembly code in the editor
+3. Click "Assemble" to convert it to machine code
+4. Use the "Load" and "Save" buttons to manage your assembly files
 
-The GUI provides:
+### Local Development
 
-- A text editor for entering assembly code
-- Load and Save functionality for assembly files
-- One-click assembly with visual machine code output
-- Error reporting through dialog boxes
+To run or modify the assembler locally:
 
-### Command Line Interface
+1. Clone the repository
 
-For programmatic use, you can import the assembler function:
+   ```bash
+   git clone https://github.com/yourusername/Assembler_SimpleRisc.git
+   cd Assembler_SimpleRisc
+   ```
 
-```python
-from assembler_core import assemble
+2. Open `index.html` in your browser to use the assembler
 
-# Example assembly code
-code = """
-; Example program
-mov r1, #10
-mov r2, #20
-add r3, r1, r2
-"""
+3. For development, you can use any local server:
 
-try:
-    machine_code = assemble(code)
-    for i, code in enumerate(machine_code):
-        print(f"Addr {i:02}: {code:032b}  (0x{code:08X})")
-except Exception as e:
-    print("Error:", e)
-```
+   ```bash
+   # Using Python's built-in server
+   python -m http.server
+
+   # Then visit http://localhost:8000
+   ```
 
 ## Project Structure
 
-| File                | Description                                     |
-| ------------------- | ----------------------------------------------- |
-| `main.py`           | Entry point for the application                 |
-| `gui.py`            | GUI implementation using Tkinter                |
-| `assembler_core.py` | Core assembling functionality                   |
-| `assembler.py`      | Legacy entry point (for backward compatibility) |
+| File/Directory    | Description                                 |
+| ----------------- | ------------------------------------------- |
+| `index.html`      | Main HTML file with the web interface       |
+| `css/style.css`   | Styling for the web application             |
+| `js/assembler.js` | Core assembling functionality in JavaScript |
+| `js/app.js`       | UI interaction handling                     |
 
 ## SimpleRISC Instruction Set
 
@@ -180,12 +155,15 @@ bgt loop        ; Branch if greater than zero
 
 ## Implementation Details
 
-### Two-Pass Assembly Process
+### Browser-Based Execution
 
-The assembler uses a two-pass approach:
+The assembler runs entirely client-side:
 
-1. **First pass**: Collects all labels and their addresses
-2. **Second pass**: Translates instructions to machine code, resolving label references
+1. JavaScript parses the assembly code
+2. A two-pass algorithm is used:
+   - First pass: Collects all labels and their addresses
+   - Second pass: Translates instructions to machine code, resolving label references
+3. Results are displayed directly in the browser
 
 ### Instruction Encoding
 
@@ -197,8 +175,4 @@ The assembler encodes instructions in a 32-bit format:
 
 ## Contributing
 
-Contributions to improve the SimpleRISC Assembler are welcome. Please feel free to submit a Pull Request.
-
-## License
-
-This project is available under the MIT License.
+Contributions to improve the SimpleRISC Assembler are welcome. Please feel free to submit a Pull Request to the [GitHub repository](https://github.com/yourusername/Assembler_SimpleRisc).
