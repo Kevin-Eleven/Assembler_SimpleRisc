@@ -1,7 +1,5 @@
-/**
+/*
  * SimpleRISC Assembler - Web Interface
- *
- * This file handles the user interface interactions for the SimpleRISC assembler web app.
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -13,18 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveBtn = document.getElementById("save-btn");
   const fileInput = document.getElementById("file-input");
 
+  // Disable spell checking for code input
+  inputArea.setAttribute("spellcheck", "false");
+
   // Set initial content
   inputArea.value =
-    "; Enter your assembly code here\n\n; Example:\n; Simple addition\nmov r1, #10\nmov r2, #20\nadd r3, r1, r2";
+    "; Enter your assembly code here\n\n; Example:\n\n; Hash(#) sign followed by a number is used to represent immediate values\n\n; Simple addition\nmov r1, #10\nmov r2, #20\nadd r3, r1, r2";
 
-  // Handle the assemble button click
   assembleBtn.addEventListener("click", function () {
     const assemblyCode = inputArea.value;
-    outputArea.value = ""; // Clear previous output
+    outputArea.value = "";
 
     try {
       const machineCode = assemble(assemblyCode);
-      // Display the machine code in the output area
+
       for (let i = 0; i < machineCode.length; i++) {
         const code = machineCode[i];
         // Format the output like the original Python version
@@ -36,17 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
           .padStart(8, "0")})\n`;
       }
     } catch (error) {
-      // Show error message in the output area
       outputArea.value = `Assembly Error: ${error.message}`;
     }
   });
 
-  // Handle the load button click
   loadBtn.addEventListener("click", function () {
     fileInput.click();
   });
 
-  // Handle file selection
   fileInput.addEventListener("change", function (e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -58,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
     reader.readAsText(file);
   });
 
-  // Handle the save button click
   saveBtn.addEventListener("click", function () {
     const code = inputArea.value;
     const blob = new Blob([code], { type: "text/plain" });

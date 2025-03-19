@@ -134,3 +134,68 @@ footer {
 .github-corner i {
   font-size: 28px;
 }
+
+/* Implementation Details Section Styles */
+.implementation-details {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.implementation-details h2 {
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.details-content {
+  padding: 0 10px;
+}
+
+.details-content h3 {
+  color: #2c3e50;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.details-content p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.details-content ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.details-content li {
+  margin-bottom: 5px;
+}
+
+.instruction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.instruction-table th,
+.instruction-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.instruction-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.instruction-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.instruction-table tr:hover {
+  background-color: #f1f1f1;
+}

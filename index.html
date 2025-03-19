@@ -52,6 +52,100 @@
         </div>
       </div>
 
+      <!-- Implementation Details Section -->
+      <section class="implementation-details">
+        <h2>Implementation Details</h2>
+        <div class="details-content">
+          <h3>About SimpleRISC</h3>
+          <p>
+            SimpleRISC is a simplified RISC (Reduced Instruction Set Computer)
+            architecture designed for educational purposes. This web-based
+            assembler translates SimpleRISC assembly language into machine code.
+          </p>
+
+          <h3>Assembler Features</h3>
+          <ul>
+            <li>
+              Two-pass assembly process for handling labels and symbol
+              resolution
+            </li>
+            <li>
+              Support for all SimpleRISC instructions including arithmetic,
+              logical, and control flow operations
+            </li>
+            <li>Register and immediate addressing modes</li>
+            <li>32-bit instruction encoding format</li>
+          </ul>
+
+          <h3>Instruction Format</h3>
+          <p>
+            SimpleRISC uses a 32-bit instruction word with the following general
+            format:
+          </p>
+          <ul>
+            <li>Bits 27-31: 5-bit opcode field</li>
+            <li>
+              Bit 26: Mode bit (0 for register operands, 1 for immediate
+              operands)
+            </li>
+            <li>Bits 21-25: First register operand (rd)</li>
+            <li>Bits 16-20: Second register operand (rs1)</li>
+            <li>
+              Bits 11-15: Third register operand (rs2) or part of immediate
+              value
+            </li>
+            <li>Bits 0-10: Extended immediate field or unused</li>
+          </ul>
+
+          <h3>Supported Instructions</h3>
+          <table class="instruction-table">
+            <tr>
+              <th>Type</th>
+              <th>Instructions</th>
+              <th>Format</th>
+            </tr>
+            <tr>
+              <td>Arithmetic & Logic</td>
+              <td>add, sub, mul, div, mod, and, or, not, lsl, lsr, asr</td>
+              <td>
+                op rd, rs1, rs2 <br />
+                op rd, rs1, #imm
+              </td>
+            </tr>
+            <tr>
+              <td>Data Movement</td>
+              <td>mov, ld, st</td>
+              <td>
+                mov rd, rs1 <br />
+                mov rd, #imm <br />
+                ld/st rd, rs1, rs2 <br />
+                ld/st rd, rs1, #imm
+              </td>
+            </tr>
+            <tr>
+              <td>Control Flow</td>
+              <td>b, beq, bgt, call, ret</td>
+              <td>
+                b label <br />
+                beq label <br />
+                bgt label <br />
+                call label <br />
+                ret
+              </td>
+            </tr>
+            <tr>
+              <td>Other</td>
+              <td>cmp, nop</td>
+              <td>
+                cmp rd, rs1 <br />
+                cmp rd, #imm <br />
+                nop
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
       <footer>
         <p>
           SimpleRISC Assembler - Web Version |

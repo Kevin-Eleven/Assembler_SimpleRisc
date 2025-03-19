@@ -1,9 +1,4 @@
-/**
- * SimpleRISC Assembler - JavaScript Implementation
- *
- * This file contains the core functionality for the SimpleRISC assembler,
- * converted from Python to JavaScript to run in web browsers.
- */
+// SimpleRISC Assembler - JavaScript Implementation
 
 // Define 5-bit opcodes for a 32-bit SimpleRISC ISA
 const opcodes = {

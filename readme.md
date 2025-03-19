@@ -20,7 +20,7 @@ A web-based assembler for the SimpleRISC instruction set architecture, designed 
 
 ## Overview
 
-The SimpleRISC Assembler translates assembly language code written for the SimpleRISC architecture into machine code. This web version runs entirely client-side, making it easily accessible from any browser and deployable on GitHub Pages.
+The SimpleRISC Assembler translates assembly language code written for the SimpleRISC architecture into machine code. This web version runs entirely client-side, making it easily accessible from any browser.
 
 ## Features
 
@@ -38,7 +38,7 @@ The SimpleRISC Assembler translates assembly language code written for the Simpl
 
 Access the SimpleRISC Assembler directly in your browser:
 
-1. Go to [https://yourusername.github.io/Assembler_SimpleRisc](https://yourusername.github.io/Assembler_SimpleRisc)
+1. Go to [https://kevin-eleven.github.io/Assembler_SimpleRisc](https://kevin-eleven.github.io/Assembler_SimpleRisc)
 2. Enter your assembly code in the editor
 3. Click "Assemble" to convert it to machine code
 4. Use the "Load" and "Save" buttons to manage your assembly files
@@ -50,20 +50,13 @@ To run or modify the assembler locally:
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/yourusername/Assembler_SimpleRisc.git
+   git clone https://github.com/kevin-eleven/Assembler_SimpleRisc.git
    cd Assembler_SimpleRisc
    ```
 
 2. Open `index.html` in your browser to use the assembler
 
-3. For development, you can use any local server:
-
-   ```bash
-   # Using Python's built-in server
-   python -m http.server
-
-   # Then visit http://localhost:8000
-   ```
+3. For development, you can use any local server.
 
 ## Project Structure
 
